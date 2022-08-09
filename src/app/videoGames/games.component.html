@@ -1,0 +1,37 @@
+<!-- Content -->
+<div class="content" role="main">
+
+  <div id="filter-card" class="card-background mr-5">
+    <div class="mb-5 title">Filter Results</div>
+
+    <label for="name">Name (contains)</label>
+    <input id="name" class="mb-5" placeholder="Text string" type="text" [(ngModel)]="filter" (ngModelChange)="filterGames($event)" />
+  
+    <label for="min-score">Minimum score</label>
+    <input id="min-score" class="mb-5" placeholder="1 - 10" type="number" [(ngModel)]='minScore' (ngModelChange)="filterByScore($event)"/>
+
+    <label for="order">Order by</label>
+    <select id="order" name="order" class="custom-select mb-5" [(ngModel)]="order" (ngModelChange)="onOrderBy($event)">
+      <option *ngFor="let o of orderOptions">{{o}}</option>
+    </select>
+
+    <div id="clear-button" class="accent-blue button-text button" (click)="onClear()">Clear</div>
+  
+  </div>
+
+  <div id="games-list">
+    <div *ngFor="let g of games" class="video-game-card card-background">
+      <div class="video-game-left grow mr-5">
+        <div class="video-game-name button-text">{{g.name}}</div>
+        <div class="video-game-release mb-2">Release date: {{g.first_release_date | date:'dd/MM/yyyy' }}</div>
+        <div class="video-game-summary">[Sumamry] {{g.summary}}</div>
+      </div>
+
+      <div class="video-game-right">
+        <div class="video-game-rating accent-blue button-text">{{g.rating | number:'1.0-0' }}</div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
