@@ -11,7 +11,7 @@
 }
 
 .spacer {
-    width: 20px;
+    width: 40px;
 }
 
 .content {
@@ -29,6 +29,28 @@
     .title {
         font-weight: 600;
     }
+}
+
+.custom-select:after 
+   {
+    content: '';
+    display: inline-block;
+    float: right;
+    width: .5rem;
+    height: .5rem;
+    border-bottom: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+    border-bottom-left-radius: 2px;
+    transform: rotate(45deg) translate(50%, 0%);
+    transform-origin: center center;
+    transition: transform ease-in-out 100ms
+  }
+  
+.select::after 
+{
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
 }
 
 #clear-button {

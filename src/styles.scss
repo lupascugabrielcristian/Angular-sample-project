@@ -28,6 +28,35 @@ input {
     padding: 1em;
 }
 
+input:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.custom-select {
+    background-color: #182c47;
+    color: #c1d1e8;
+    border: none;
+    padding: 1em;
+
+}
+
+
 // Buttons / accent blue #5692e8
 .accent-blue {
     background-color: #5692e8;
