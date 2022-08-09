@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { VideoGame } from './model/videoGame';
+import { VideoGamesService } from './services/videoGames.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'developer-applicant-app';
+
+  constructor( private videoGamesService: VideoGamesService) {}
+
+
+  games = this.videoGamesService.getVideoGames();
 }

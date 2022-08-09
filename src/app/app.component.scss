@@ -1,0 +1,83 @@
+.toolbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 500;
+    padding: 2em;
+}
+
+.spacer {
+    width: 20px;
+}
+
+.content {
+    padding: 3em;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#filter-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+
+    .title {
+        font-weight: 600;
+    }
+}
+
+#clear-button {
+    width: 20%;
+    align-self: end;
+}
+
+.button {
+    padding: 0.5em;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
+    text-align: center;
+}
+
+#games-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.video-game-card {
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    margin-bottom: 20px;
+}
+
+.video-game-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-game-right {
+    display: grid;
+    place-content: center;
+    padding: 1em;
+}
+
+.video-game-rating {
+    padding: 0.7em;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+}
+
+.video-game-name {
+    font-weight: 600;
+    font-size: 22px;
+}
