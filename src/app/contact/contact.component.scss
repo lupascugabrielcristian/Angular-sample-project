@@ -1,0 +1,35 @@
+.title{
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 12px;
+}
+
+.center {
+    display: grid;
+    place-items: center;
+}
+
+.content {
+    max-width: 500px;
+}
+
+.contact-form {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.v-spacer {
+    flex-grow: 1;
+}
+
+.button {
+    max-width: 80px;
+    align-self: end;
+}
+
+#message {
+    min-height: 70px;
+}

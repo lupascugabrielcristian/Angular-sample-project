@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { Contact } from './contact/app.contact';
+import { Contact } from './contact/contact.component';
 import { AppHeader } from './header/header.component';
 import { VideoGamesService } from './services/videoGames.service';
 import { Games } from './videoGames/games.component';

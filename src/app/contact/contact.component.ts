@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 
 @Component({
-    templateUrl: 'app.contact.html',
-    styleUrls: ['app.contact.scss']
+    templateUrl: 'contact.component.html',
+    styleUrls: ['contact.component.scss']
 })
 export class Contact {
 

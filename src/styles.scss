@@ -7,7 +7,7 @@ body {
     color: #c1d1e8;
     font-size: 14px;
     font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, "Montserat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Montserrat', 'sans-serif';
 }
 
 // Card / panel background #0e1a2b
@@ -31,6 +31,14 @@ input {
 
 input:focus {
     outline: none;
+}
+
+
+// Phone
+@media screen and (max-width: 850px) {
+    input {
+        padding: 0.7em;
+    }
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -58,9 +66,27 @@ label {
 }
 
 
+@media screen and (max-width: 850px) {
+    .custom-select {
+        padding: 0.7em;
+    }
+}
+
+.button {
+    cursor: pointer;
+    padding: 0.5em;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
+    text-align: center;
+}
+
 // Buttons / accent blue #5692e8
 .accent-blue {
     background-color: #5692e8;
+}
+
+.f-accent-blue {
+    color: #5692e8;
 }
 
 // Reusable classes
@@ -68,8 +94,26 @@ label {
     flex-grow: 1;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.mr-2 {
+    margin-right: 20px;
+}
+
 .mr-5 {
     margin-right: 50px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
 }
 
 .mb-2 {
