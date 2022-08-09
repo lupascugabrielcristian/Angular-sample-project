@@ -33,6 +33,7 @@
     flex-direction: column;
     padding: 1.5em;
     margin-right: 50px;
+    height: fit-content;
 
     .title {
         font-size: 16px;
@@ -140,18 +141,20 @@
 
 .video-game-rating {
     padding: 0.7em;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    height: 22px;
+    width: 22px;
     text-align: center;
+    display: grid;
+    place-items: center;
 }
 
 
 @media screen and (max-width: 850px) {
     .video-game-rating {
-        font-size: 16px;
+        font-size: 14px;
         padding: 0.6em;
     }
 }
