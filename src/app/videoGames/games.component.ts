@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { VideoGame } from '../model/videoGame';
 import { VideoGamesService } from '../services/videoGames.service';
 import { Router } from '@angular/router'; 
@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 })
 export class Games {
 
+  isLoading = false;
   title = 'developer-applicant-app';
   games: VideoGame[] = [];
   filter = "";
-  minScore = 0;
+  minScore = "";
   order: string = "Release Date";
   orderOptions = ["Release Date", "Score", "Name"];
 
@@ -23,11 +24,15 @@ export class Games {
   ngOnInit(): void {
     this.games = this.sort(this.videoGamesService.games);
 
-    if ( this.games.length == 0 ) {
+    if ( this.games.length == 0 && !this.isLoading ) {
+
+      this.isLoading = true;
 
       this.videoGamesService.getVideoGames().subscribe( (receivedGames: VideoGame[]) => {
           this.games = this.sort(receivedGames);
           this.videoGamesService.games = receivedGames;
+
+          this.isLoading = false;
       });
 
     }
@@ -40,20 +45,47 @@ export class Games {
     this.games = this.sort(games);
   }
 
-  filterByScore(min: number): void {
-    console.log(min);
-    if ( min == null ) {
-      this.minScore = 0;
+  filterByScore(min: string): void {
+    if ( !parseInt(min) ) {
+      this.minScore = "";
+    }
+    else {
+      this.minScore = min;
+    }
+    console.log(this.minScore);
+
+    let val = parseInt(this.minScore);
+    if ( this.minScore == "" || !this.minScore) {
+      val = 0;
+    }
+
+    let games = this.videoGamesService.games.filter( g => g.rating >= val);
+    this.games = this.sort( games );
+  }
+
+  onMinScoreKeyPress(event: KeyboardEvent) {
+    if ( this.isLoading ) {
+      event.preventDefault();
       return;
     }
 
-    let games = this.videoGamesService.games.filter( g => g.rating >= min);
-    this.games = this.sort( games );
+    const regexpNumber = /[0-9\+\-\ ]/;
+    let inputCharacter = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
+      event.preventDefault();
+    }
+
+    if ( parseInt(this.minScore + event.key) > 99 ) {
+      event.preventDefault();
+      return
+    }
+
+    console.log( this.minScore );
   }
 
   onClear() {
     this.filter = "";
-    this.minScore = 0;
+    this.minScore = "";
     this.order = this.orderOptions[0];
     this.games = this.sort(this.videoGamesService.games);
   }

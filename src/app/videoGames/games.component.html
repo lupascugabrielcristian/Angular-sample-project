@@ -7,8 +7,9 @@
     <label for="name" class="button-text">Name (contains)</label>
     <input id="name" class="mb-5" placeholder="Text string" type="text" [(ngModel)]="filter" (ngModelChange)="filterGames($event)" />
   
+    <!-- FILTRARE DUPA SCOR -->
     <label for="min-score" class="button-text not-on-tablet">Minimum score</label>
-    <input id="min-score" class="mb-5 not-on-tablet" placeholder="1 - 10" type="number" [(ngModel)]='minScore' (ngModelChange)="filterByScore($event)"/>
+    <input id="min-score" class="mb-5 not-on-tablet" placeholder="1 - 10" type="number" [(ngModel)]="minScore" (ngModelChange)="filterByScore($event)" (keypress)="onMinScoreKeyPress($event)"/>
 
     <label for="order" class="button-text not-on-tablet">Order by</label>
     <select id="order" name="order" class="custom-select mb-5 not-on-tablet" [(ngModel)]="order" (ngModelChange)="onOrderBy($event)">
@@ -43,7 +44,7 @@
   <div id="games-list">
 
 
-    <div *ngIf="games.length == 0" class="spin-container">
+    <div *ngIf="games.length == 0 && isLoading" class="spin-container">
       <div class="spin"></div>
     </div>
 
